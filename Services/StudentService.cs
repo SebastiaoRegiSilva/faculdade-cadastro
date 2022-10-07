@@ -19,16 +19,16 @@ namespace MongoDbExample.Services
             _students = database.GetCollection<Student>(settings.StudentsCollectionName);
         }
         
-        /// <summary></summary>
+        /// <summary>Buscar todos estudantes.</summary>
         public async Task<List<Student>> GetAllAsync()
         {
             return await _students.Find(s => true).ToListAsync();
         }
         
-        /// <summary></summary>
+        /// <summary>Buscar estudante por código de identificação.</summary>
         public async Task<Student> GetByIdAsync(string id)
         {
-            return await _students.Find<Student>(s => s.Id == id).FirstOrDefaultAsync();
+            return await _students.Find<Student>(s => s.id == id).FirstOrDefaultAsync();
         }
         
         /// <summary></summary>
